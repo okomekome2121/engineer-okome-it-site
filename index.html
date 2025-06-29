@@ -1,0 +1,482 @@
+
+<?php require("./wp/wp-load.php"); ?>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>経歴ポートフォリオ</title>
+    
+<?php wp_head(); ?>
+    
+</head>
+<body>
+<!-- wp:html1 top_image-->
+<div class="wp-block-image-title">
+  <img class="name_title" src="https://business-okome-tabi.com/wp-content/uploads/2024/12/修正版_おこめ名-1024x576.png" alt="画像1">
+  <img class="subtitle" src="https://business-okome-tabi.com/wp-content/uploads/2024/12/修正版_おこめサブタイトル-1024x576.png" alt="画像2">
+</div>
+<style>
+.wp-block-image-title {
+    display:flex;
+    width: 100%;
+    max-width: 1200px;
+    padding-top: 20px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.name_title,.subtitle {
+    width: 50%; /* 必要に応じて最大幅を指定 */
+}
+@media (max-width: 768px){
+    .wp-block-image-title{
+        flex-direction: column;
+    }
+    .name_title, .subtitle{
+        width:100%;
+    }
+}
+</style>
+<!-- /wp:html1 top_image-->
+
+<!-- wp:html2 Introduction-->
+<div class="top-Introduction">
+    <div style="background-color:#c8e4ff;background-image:url(https://saruwakakun.design/wp-content/uploads/2022/11/sango.jpeg)"></div>
+    <div>
+        <h2>Introduction</h2>
+        <figure><img src="https://business-okome-tabi.com/wp-content/uploads/2024/12/girl-01.jpg" alt="" /></figure>
+            <p>はじめまして おこめと申します。<br>
+            現在、インフラ（クラウド）エンジニアをしています。<br>
+            本サイトは自身の経歴、スキルをまとめたポートフォリオサイトです。<br>
+            本サイトをご覧になることで私おこめに興味を持って頂けたら幸いです。</p>
+    </div>
+</div>
+<style>
+.top-Introduction > div {
+    margin-bottom: 0px;
+    margin-top:0px;
+    text-align:center;
+    img{
+         width:95px;
+    }
+}
+</style>
+<!-- /wp:html2 Introduction-->
+
+<!-- wp:html3 Skill-->
+<div style="text-align: center">
+<h2>Skill</h2>
+</div>
+<p class="explanation">
+    現在のおこめのエンジニアとしてのスキルになります。<br>
+    構築〜保守メインに対応しており、障害対応や設定調査に長けているのが強みです。<br>
+    専門性の低さを認識しており、今後はバックエンド系の開発（クラウド含む）の業務と携わる比率を増やし、<br>
+    少しずつ専門性を高めていきたいと考えています。
+</p>
+<div class="container">
+    <div class="left">
+    <dl class="bar-chart">
+        <h3><b>OS</b></h3>
+        <dt>Linux</dt>
+        <dd><span style="width: 80%">80%</span></dd>
+        <dt>Windows</dt>
+        <dd><span style="width: 40%">40%</span></dd>
+    </dl>
+    <dl class="bar-chart">
+      <h3><b>Public Cloud Service</b></h3>
+      <dt>AWS</dt>
+       <dd><span style="width: 70%">70%</span></dd>
+    </dl>
+    </div>
+    <div class="right">
+    <dl class="bar-chart">
+        <h3><b>Infra Skill</b></h3>
+        <dt>構築〜保守</dt>
+        <dd><span style="width: 70%">70%</span></dd>
+        <dt>運用～監視</dt>
+        <dd><span style="width: 80%">80%</span></dd>
+    </dl>
+    <h3><b>Programming Skill</b></h3>
+    <dl class="bar-chart">
+        <dt>Shell Script（bash）</dt>
+        <dd><span style="width: 50%">50%</span></dd>
+        <dt>Python</dt>
+        <dd><span style="width: 20%">20%</span></dd>
+    </dl>
+    </div>
+</div>
+<span>【グラフの見方】<br>
+    「0~30%: 軽く使用した程度」、「30%~60%: 実務で数ヶ月以上使用しているがもう少し習熟が必要」、「60%~100%: 実務レベルで自由に駆使できる」。<br>
+    ＊業務で実際に使用した技術や実績のみ掲載しております。</span>
+<style>
+@media (min-width: 600px) {
+.container {
+    display: flex;
+}
+.left, .right {
+    flex: 1;
+    text-align: left;
+    }
+}
+p {
+    text-align: center;
+}
+.explanation {
+    text-align: center;
+    font-size: 16px;
+    }
+dl, dt, dd {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+dd {
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #f2f2f2;
+}
+.bar-chart span {
+    display: inline-block;
+    padding-right: 15px;
+    border-radius: inherit;
+    background-color: #2589d0;
+    color: #fff;
+    font-weight: 600;
+    line-height: 45px;
+    text-align: right;
+    white-space: nowrap;
+    animation: bar-chart 1.2s ease;
+}
+@keyframes bar-chart {
+    from {
+        width: 0;
+    }
+}
+</style>
+<!-- /wp:html3 Skill-->
+
+<!-- wp:html4 Certification-->
+<div style="text-align: center">
+<h2>Certification</h2>
+</div>
+<div class="list">
+    <div>インフラ系</div>
+    <ul class="list-block">
+        <li>LPIC level1(2020年12月)</li>
+        <li>AWS AWS Certified Solutions Architect – Associate(2021年11月)</li>
+        <li>Cisco Certified Network Associate(2022年6月)</li>
+        <li>Python 3 エンジニア認定基礎試験(2023年2月)</li>
+    </ul>
+    <div>Web系</div>
+    <ul class="list-block">
+        <li>HTML5プロフェッショナル認定試験 レベル1 バージョン2.5 (2024年12月)</li>
+    </ul>
+    <div>その他</div>
+    <ul class="list-block">
+        <li>日商簿記検定2級（2018年2月）</li>
+        <li>ファイナンシャル・プランニング技能検定3級（2017年3月）</li>
+    </ul>  
+</div>
+<style>
+.list-block{
+    display: block;
+    margin-top: 10px;
+}
+.list {
+    border: 2px solid #25a5d0;
+}
+.list div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 10px 0;
+    background-color: #25a5d0;
+    color: #fff;
+    font-weight: 600;
+}
+.list ul {
+    list-style-type: disc;
+    margin: 0;
+    padding: 1em 1em 1em 2.5em;
+    list-style-type: disc;
+}
+.list li {
+    padding: .3em .3em .3em 0;
+}
+.list li::marker {
+    color: #25a5d0;
+    font-size: 1.1em;
+}
+</style>
+<!-- /wp:html4 Certification-->
+
+<!-- wp:html6 merit -->
+<div style="text-align: center">
+<h2>おこめの強み</h2>
+</div>
+<div class="wp-block-columns">
+    <div class="wp-block-column">
+        <img src="https://business-okome-tabi.com/wp-content/uploads/2025/01/merit1-1.png" alt="">
+            <p style="font-style:normal;font-weight:700">ドキュメント作成</p>
+            <p style="font-size:16px;text-align:left">クライアントが求める成果物をを作成いたします</p>
+    <div class="box">
+    <div style="font-size:14px"><b>実施例</b></div>
+                <ul style="border: none;font-size:14px">
+                    <li>顧客報告用の定例会資料の作成</li>
+                    <li>作業用の手順書作成</li>
+                    <li>監視の設定書作成</li>
+                </ul>
+    </div>
+    </div>
+    <div class="wp-block-column">
+            <img src="https://business-okome-tabi.com/wp-content/uploads/2025/01/merit2.png" alt="">
+            <p style="font-style:normal;font-weight:700">対人調整</p>
+            <p style="font-size:16px;text-align:left">他者とのコミュニケーションを円滑にします</p>
+        <div class="box">
+        <div style="font-size:14px"><b>実施例</b></div>
+                <ul style="border: none;font-size:14px">
+                    <li>顧客に月次報告</li>
+                    <li>部門依頼対応や障害発生時ベンダー調整</li>
+                    <li>子会社調整</li>
+                </ul>
+        </div>
+    </div>
+    <div class="wp-block-column">
+            <img src="https://business-okome-tabi.com/wp-content/uploads/2025/01/merit3.png" alt="">
+            <p style="font-style:normal;font-weight:700">障害対応</p>
+            <p style="font-size:16px;text-align:left">システムの障害時に様々な観点で調査いたします</p>
+        <div class="box">
+    <div style="font-size:14px"><b>実施例</b></div>
+            <ul style="border: none;font-size:14px">
+                <li>サーバエラー発生時調査</li>
+                <li>AWS障害発生時調査</li>
+                <li>オンプレ障害発生時24365対応</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<style>
+.wp-block-column {
+        padding: 10px;
+    }
+ul, li {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+.box {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: .5em 1.5em 1em;
+    border-top: 5px solid #2589d0;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+}
+
+.box > div {
+    margin-bottom: .5em;
+    color: #000;
+    font-weight: 300;
+    font-size: 1.05em;
+}
+</style>
+<!-- /wp:html6 merit -->
+
+<!-- wp:html7 Careea and Life-->
+<div style="text-align: center">
+<h2 id="生い立ち">生い立ち</h2>
+</div>
+<div class="comment no1" style="background-color: lightyellow; padding: 20px;">
+<img class="term_image" src="http://business-okome-tabi.com/wp-content/uploads/2025/01/child_term.png" alt="" align="right">
+    <span class="oi_mark">生まれ〜大学時代</span><br>
+    東海地方にて生まれる<br>
+    人間の思考について興味を持ち、大学では哲学を専攻する<br>
+    異文化にも興味があり、短期留学したり、海外インターン支援サークルに所属していた
+</div>
+<div class="topic">
+<img class="mine" src="https://business-okome-tabi.com/wp-content/uploads/2024/12/girl-01.jpg" alt="" align="right">
+<div class="balloon">
+    海外にインターンシップに行った学生が成長したことに喜びを感じました。短期留学で自身も異文化の違いを体感しました。</div>
+</div>
+<h4 style="text-align:center" id="矢印">▼</h4>
+<div class="comment no2" style="background-color: lightyellow; padding: 20px;">
+<img class="term_image" src="https://business-okome-tabi.com/wp-content/uploads/2025/01/eng1_term-1.png" alt="" align="right">
+<span class="oi_mark">新入社員時代</span><br>
+   自分の軸を基準に色んな業種を受け、IT業界の会社にて働き始める<br>
+   全くの未経験故分からないことだらけで毎日焦る日々<br>
+   先輩や同期に助けられつつ2年半インフラエンジニアとしてオンプレの保守対応を行う
+</div>
+<div class="topic">
+<img class="mine" src="https://business-okome-tabi.com/wp-content/uploads/2024/12/girl-01.jpg" alt="" align="right">
+<div class="balloon">
+    一時ほぼ毎日障害が発生し、その度に真夜中にデータセンターに駆けつけたことで障害に対する適応力が尽きました。
+</div>
+</div>
+<h4 style="text-align:center" id="矢印">▼</h4>
+<div class="comment no3" style="background-color: lightyellow; padding: 20px;">
+<img class="term_image" src="http://business-okome-tabi.com/wp-content/uploads/2025/01/accounting_term.png" alt="" align="right">
+<span class="oi_mark">模索時代</span><br>
+    <div class="term_comment">簿記資格取得をきっかけに経理業にも興味をもつ<br>
+    経理職に異動・転職し2年半働くも、さらなるキャリアアップを求めエンジニアに戻る</div>
+</div>
+<div class="topic">
+<img class="mine" src="https://business-okome-tabi.com/wp-content/uploads/2024/12/girl-01.jpg" alt="" align="right">
+<div class="balloon">
+    経理でお金の動きや財務諸表について学びました。エンジニアとは異なる視点を学び、スキルアップに繋がりました。
+</div>
+</div>
+<h4 style="text-align:center" id="矢印">▼</h4>
+<div class="comment no4" style="background-color: lightyellow; padding: 20px;">
+<img class="term_image" src="http://business-okome-tabi.com/wp-content/uploads/2025/01/eng_door_term.png" alt="" align="right">
+<span class="oi_mark">エンジニア奔走時代</span><br>
+常駐先で初めてAWSに触れ、クラウドエンジニアの門をたたく<br>
+AWSとTerraformの仕組みを学ぶ<br>
+業務で扱うサーバ台数が増え、TerratermマクロやShellScriptで作業効率化するようになる
+</div>
+<div class="topic">
+<img class="mine" src="https://business-okome-tabi.com/wp-content/uploads/2024/12/girl-01.jpg" alt=""  align="right">
+<div class="balloon">
+    他にもIT監査に参画し、チームの監査や監査資料作成等の業務を行い、ドキュメント作成の幅を広げました。
+</div>
+</div>
+<h4 style="text-align:center" id="矢印">▼</h4>
+<h4 style="text-align:center"><span class="oi_mark">現在</span></h4>
+<div class="future">
+<p>クラウドエンジニアとして構築・保守メインに業務に携っております。<br>
+    今後はクラウド領域の拡大と作業効率化に力を入れていきたいです<br></p>
+<div style="text-align: center;"><img src="http://business-okome-tabi.com/wp-content/uploads/2025/01/lets_future_term.png" alt="" style="width:200px;height:auto"></div>
+    <p>ご覧いただきありがとうございました<br>
+    今後も業務に真摯に向き合い、精進いたします</p> 
+</div>
+<style>
+.topic {
+    max-width: 1000px;
+    margin: 0 auto;
+    }
+.mine {
+    margin-right: 30px;
+    }
+.oi_mark {
+    padding: .3em .8em;
+    background-color: #2589d0;
+    color: #fff;
+}
+@media (min-width:600px) {
+.comment {
+    flex-direction: column; 
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 2px solid #2589d0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.term_comment {
+  flex-direction: column;
+  text-align: left;
+}
+.term_image {
+    flex-direction: column;
+    width:150px;
+    height:auto;
+    display: block;
+    margin: 0 auto;
+    }
+}
+.balloon {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 800px;
+    margin-top: 20px;
+    margin-left: 30px;
+    padding: .8em 1.2em;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    color: #333333;
+    font-size:16px;
+}
+.balloon::before {
+    position: absolute;
+    right: -15px;
+    width: 15px;
+    height: 30px;
+    background-color: #f2f2f2;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+    content: '';
+}
+.topic {
+    display: flex-reverse;
+    gap:1rem;
+    img{
+         width:95px;
+    }
+}
+@media (min-width: 2000px) {
+.topic{
+    flex-direction:column-reverse;
+    img{
+        margin:auto;
+    }
+    .balloon{
+        margin:0;
+        margin-top: 20px;
+    }
+    .balloon::before{
+        right:calc(50% - 7.5px);
+        bottom:-15px;
+        width:30px;
+        height:15px;
+        clip-path:polygon(100% 0%, 50% 100%, 0% 0%);
+        }
+    }
+}
+.future {
+    align-items: center;
+    }
+</style>
+<!-- /wp:html7 Careea and Life -->
+
+<!-- wp:shortcode -->
+<style>
+<h2 class="h-contact"><span>お問い合わせ</span></h2>
+<section class="contactForm">
+<?php echo do_shortcode( '[contact-form-7 id="788681a" title="コンタクトフォーム 1"]' ); ?>
+</section>
+</style>
+<!-- /wp:shortcode -->
+    
+<!-- wp:html7 common style -->
+<style>
+h2 {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    margin: calc(3.5em / 2) 0 calc(3.5em / 4) calc(3.5em / 2);
+    color: #333333;
+    font-size: 50px;
+    line-height: 10px;
+    z-index: 1
+}
+h2::before {
+    position: absolute;
+    bottom: calc(-2.5em / 4);
+    left: calc(-2.5em / 2);
+    z-index: -1;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    background: #bbdbfb;
+    content: '';
+}
+h3 {
+    padding-bottom: 8px;
+    border-bottom: 2px dotted #FFFFCC;
+    }
+</style>
+<!-- /wp:html7 common style -->
+    
+<?php wp_footer(); ?>
+</body>
+</html>
