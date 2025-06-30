@@ -236,7 +236,7 @@ dd {
 <div class="balloon">
     海外にインターンシップに行った学生が成長したことに喜びを感じました。短期留学で自身も異文化の違いを体感しました。</div>
 </div>
-<h4 style="text-align:center">▼</h4>
+<h4 class="nextmark">▼</h4>
 <div class="comment no2" style="background-color: lightyellow; padding: 20px;">
 <img class="term_image" src="image/eng1_term-1.png" alt="" align="right">
 <span class="oi_mark">新入社員時代</span><br>
@@ -250,7 +250,7 @@ dd {
     一時ほぼ毎日障害が発生し、その度に真夜中にデータセンターに駆けつけたことで障害に対する適応力が尽きました。
 </div>
 </div>
-<h4 style="text-align:center" id="矢印">▼</h4>
+<h4 class="nextmark">▼</h4>
 <div class="comment no3" style="background-color: lightyellow; padding: 20px;">
 <img class="term_image" src="image/keiri_term.png" alt="" align="right">
 <span class="oi_mark">模索時代</span><br>
@@ -263,7 +263,7 @@ dd {
     経理でお金の動きや財務諸表について学びました。エンジニアとは異なる視点を学び、スキルアップに繋がりました。
 </div>
 </div>
-<h4 style="text-align:center" id="矢印">▼</h4>
+<h4 class="nextmark">▼</h4>
 <div class="comment no4" style="background-color: lightyellow; padding: 20px;">
 <img class="term_image" src="image/eng_door_term.png" alt="" align="right">
 <span class="oi_mark">エンジニア奔走時代</span><br>
@@ -277,7 +277,7 @@ AWSとTerraformの仕組みを学ぶ<br>
     他にもIT監査に参画し、チームの監査や監査資料作成等の業務を行い、ドキュメント作成の幅を広げました。
 </div>
 </div>
-<h4 style="text-align:center" id="矢印">▼</h4>
+<h4 class="nextmark">▼</h4>
 <h4 style="text-align:center"><span class="oi_mark">現在</span></h4>
 <div class="future">
 <p>クラウドエンジニアとして構築・保守メインに業務に携っております。<br>
@@ -297,7 +297,7 @@ AWSとTerraformの仕組みを学ぶ<br>
 .oi_mark {
 　　display: inline-block;
     padding: .3em .8em;
-    margin-bottom: 3mm;
+    margin-bottom: .3em;
     background-color: #2589d0;
     color: #fff;
 }
@@ -309,6 +309,9 @@ AWSとTerraformの仕組みを学ぶ<br>
     border: 2px solid #2589d0;
     border-radius: 3px;
     overflow: hidden;
+}
+.nextmark{
+  text-align: center;
 }
 .term_comment {
   flex-direction: column;
@@ -412,13 +415,10 @@ h3 {
     padding-bottom: 8px;
     border-bottom: 2px dotted #FFFFCC;
     }
-h4 {
+h4.nextmark {
   display: block;
-  position: relative;
-  width: 100%;
-  text-align: center;
-  margin: 0.5em 0;
-  font-size: 2em;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 </style>
