@@ -1,12 +1,9 @@
-<?php require("./wp/wp-load.php"); ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>経歴ポートフォリオ</title>
-    <?php wp_head(); ?>
     <style>
         /* 共通スタイル */
         h2 {
@@ -15,7 +12,7 @@
             position: relative;
             margin: calc(3.5em / 2) 0 calc(3.5em / 4) calc(3.5em / 2);
             color: #333333;
-            font-size: 50px;
+            font-size: 30px;
             line-height: 10px;
             z-index: 1;
         }
@@ -24,8 +21,8 @@
             bottom: calc(-2.5em / 4);
             left: calc(-2.5em / 2);
             z-index: -1;
-            width: 2.5em;
-            height: 2.5em;
+            width: 2.0em;
+            height: 2.0em;
             border-radius: 50%;
             background: #bbdbfb;
             content: '';
@@ -67,11 +64,27 @@
         @media (min-width: 600px) {
             .container {
                 display: flex;
+                gap: 32px; /* 左右の間隔を追加 */
+                justify-content: center; /* 中央寄せ */
+                align-items:    flex-start;
+                max-width: 900px; /* 必要に応じて幅を調整 */
+                margin: 0 auto;
             }
             .left, .right {
-                flex: 1;
+                flex: 1 1 0;
+                max-width: 800px; /* bar-chartの幅に合わせて調整 */
+                min-width: 520px;
+            }
+            .skill-description {
+                display: block;
+                max-width: 900px; /* .containerと同じ幅 */
+                margin: 16px auto 0 auto;
                 text-align: left;
             }
+        }
+        .left, .right {
+            text-align: left;
+            margin: 0 auto;
         }
         p, .explanation {
             text-align: center;
@@ -104,35 +117,66 @@
         @keyframes bar-chart {
             from { width: 0; }
         }
-        /* Certification */
-        .list-block {
-            display: block;
-            margin-top: 10px;
-        }
-        .list {
-            border: 2px solid #25a5d0;
-        }
-        .list div {
+
+        /*  Strongs  */
+        .merit-columns {
             display: flex;
             justify-content: center;
+            gap: 24px;
+            margin: 0 auto 32px auto;
+            max-width: 1200px;
+            flex-wrap: wrap;
+        }
+        .merit-group {
+            flex: 1 1 0;
+            min-width: 260px;
+            max-width: 350px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
             align-items: center;
+        }
+        .merit-title {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            margin: 8px 0 4px 0;
+            text-align: center;
+        }
+        .merit-desc {
+            font-size: 16px;
+            text-align: left;
+            margin-bottom: 8px;
+        }
+        .box-title {
+            font-size: 14px;
+            margin-bottom: .5em;
+            color: #000;
+            font-weight: 300;
+        }
+        .box-list {
+            font-size: 14px;
+            padding-left: 1.2em;
             margin: 0;
-            padding: 10px 0;
-            background-color: #25a5d0;
-            color: #fff;
-            font-weight: 600;
         }
-        .list ul {
-            list-style-type: disc;
-            margin: 0;
-            padding: 1em 1em 1em 2.5em;
+        .merit-group img {
+            width: 240px;
+            height: auto;
+            margin-top: 16px;
+            margin-bottom: 8px;
         }
-        .list li {
-            padding: .3em .3em .3em 0;
-        }
-        .list li::marker {
-            color: #25a5d0;
-            font-size: 1.1em;
+        @media (max-width: 900px) {
+            .merit-columns {
+                flex-direction: column;
+                align-items: center;
+            }
+            .merit-group {
+                max-width: 100%;
+                width: 90%;
+                margin-bottom: 24px;
+            }
         }
         /* Merit */
         .wp-block-column {
@@ -158,98 +202,10 @@
             font-size: 1.05em;
         }
         /* Career and Life */
-        .topic {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .mine {
-            margin-right: 30px;
-        }
         .oi_mark {
             padding: .3em .8em;
             background-color: #2589d0;
             color: #fff;
-        }
-        @media (min-width:600px) {
-            .comment {
-                flex-direction: column;
-                max-width: 1000px;
-                margin: 0 auto;
-                border: 2px solid #2589d0;
-                border-radius: 3px;
-                overflow: hidden;
-            }
-            .term_comment {
-                flex-direction: column;
-                text-align: left;
-            }
-            .term_image {
-                flex-direction: column;
-                width:150px;
-                height:auto;
-                display: block;
-                margin: 0 auto;
-            }
-        }
-        .balloon {
-            display: flex;
-            align-items: center;
-            position: relative;
-            max-width: 800px;
-            margin-top: 20px;
-            margin-left: 30px;
-            padding: .8em 1.2em;
-            border-radius: 5px;
-            background-color: #f2f2f2;
-            color: #333333;
-            font-size:16px;
-        }
-        .balloon::before {
-            position: absolute;
-            right: -15px;
-            width: 15px;
-            height: 30px;
-            background-color: #f2f2f2;
-            clip-path: polygon(0 0, 100% 50%, 0 100%);
-            content: '';
-        }
-        .topic {
-            display: flex-reverse;
-            gap:1rem;
-        }
-        .topic img {
-            width:95px;
-        }
-        @media (min-width: 2000px) {
-            .topic {
-                flex-direction:column-reverse;
-            }
-            .topic img {
-                margin:auto;
-            }
-            .balloon {
-                margin:0;
-                margin-top: 20px;
-            }
-            .balloon::before {
-                right:calc(50% - 7.5px);
-                bottom:-15px;
-                width:30px;
-                height:15px;
-                clip-path:polygon(100% 0%, 50% 100%, 0% 0%);
-            }
-        }
-        .future {
-            align-items: center;
-        }
-        /* お問い合わせ */
-        .h-contact {
-            text-align: center;
-            margin-top: 3em;
-        }
-        .contactForm {
-            max-width: 600px;
-            margin: 0 auto;
         }
     </style>
 </head>
@@ -315,71 +271,48 @@
         </dl>
     </div>
 </div>
-<span>【グラフの見方】<br>
+<span class="skill-description">【グラフの見方】<br>
     「0~30%: 軽く使用した程度」、「30%~60%: 実務で数ヶ月以上使用しているがもう少し習熟が必要」、「60%~100%: 実務レベルで自由に駆使できる」。<br>
     ＊業務で実際に使用した技術や実績のみ掲載しております。</span>
-
-<!-- Certification -->
-<div style="text-align: center">
-    <h2>Certification</h2>
-</div>
-<div class="list">
-    <div>インフラ系</div>
-    <ul class="list-block">
-        <li>LPIC level1(2020年12月)</li>
-        <li>AWS AWS Certified Solutions Architect – Associate(2021年11月)</li>
-        <li>Cisco Certified Network Associate(2022年6月)</li>
-        <li>Python 3 エンジニア認定基礎試験(2023年2月)</li>
-    </ul>
-    <div>Web系</div>
-    <ul class="list-block">
-        <li>HTML5プロフェッショナル認定試験 レベル1 バージョン2.5 (2024年12月)</li>
-    </ul>
-    <div>その他</div>
-    <ul class="list-block">
-        <li>日商簿記検定2級（2018年2月）</li>
-        <li>ファイナンシャル・プランニング技能検定3級（2017年3月）</li>
-    </ul>  
-</div>
 
 <!-- おこめの強み -->
 <div style="text-align: center">
     <h2>おこめの強み</h2>
 </div>
-<div class="wp-block-columns">
-    <div class="wp-block-column">
-        <img src="https://business-okome-tabi.com/wp-content/uploads/2025/01/merit1-1.png" alt="">
-        <p style="font-style:normal;font-weight:700">ドキュメント作成</p>
-        <p style="font-size:16px;text-align:left">クライアントが求める成果物をを作成いたします</p>
+<div class="wp-block-columns merit-columns">
+    <div class="wp-block-column merit-group">
+        <img src="https://business-okome-tabi.com/wp-content/uploads/2025/01/merit1-1.png" alt="ドキュメント作成">
+        <p class="merit-title">ドキュメント作成</p>
+        <p class="merit-desc">クライアントが求める成果物を作成いたします</p>
         <div class="box">
-            <div style="font-size:14px"><b>実施例</b></div>
-            <ul style="font-size:14px">
+            <div class="box-title"><b>実施例</b></div>
+            <ul class="box-list">
                 <li>顧客報告用の定例会資料の作成</li>
                 <li>作業用の手順書作成</li>
                 <li>監視の設定書作成</li>
             </ul>
         </div>
     </div>
-    <div class="wp-block-column">
-        <img src="https://business-okome-tabi.com/wp-content/uploads/2025/01/merit2.png" alt="">
-        <p style="font-style:normal;font-weight:700">対人調整</p>
-        <p style="font-size:16px;text-align:left">他者とのコミュニケーションを円滑にします</p>
+    <div class="wp-block-column merit-group">
+        <img src="https://business-okome-tabi.com/wp-content/uploads/2025/01/merit2.png" alt="対人調整">
+        <p class="merit-title">対人調整</p>
+        <p class="merit-desc">他者とのコミュニケーションを円滑にします</p>
         <div class="box">
-            <div style="font-size:14px"><b>実施例</b></div>
-            <ul style="font-size:14px">
+            <div class="box-title"><b>実施例</b></div>
+            <ul class="box-list">
                 <li>顧客に月次報告</li>
                 <li>部門依頼対応や障害発生時ベンダー調整</li>
                 <li>子会社調整</li>
             </ul>
         </div>
     </div>
-    <div class="wp-block-column">
-        <img src="https://business-okome-tabi.com/wp-content/uploads/2025/01/merit3.png" alt="">
-        <p style="font-style:normal;font-weight:700">障害対応</p>
-        <p style="font-size:16px;text-align:left">システムの障害時に様々な観点で調査いたします</p>
+    <div class="wp-block-column merit-group">
+        <img src="https://business-okome-tabi.com/wp-content/uploads/2025/01/merit3.png" alt="障害対応">
+        <p class="merit-title">障害対応</p>
+        <p class="merit-desc">システムの障害時に様々な観点で調査いたします</p>
         <div class="box">
-            <div style="font-size:14px"><b>実施例</b></div>
-            <ul style="font-size:14px">
+            <div class="box-title"><b>実施例</b></div>
+            <ul class="box-list">
                 <li>サーバエラー発生時調査</li>
                 <li>AWS障害発生時調査</li>
                 <li>オンプレ障害発生時24365対応</li>
@@ -389,64 +322,6 @@
 </div>
 
 <!-- 生い立ち -->
-<div style="text-align: center">
-    <h2 id="生い立ち">生い立ち</h2>
-</div>
-<div class="comment no1" style="background-color: lightyellow; padding: 20px;">
-    <img class="term_image" src="http://business-okome-tabi.com/wp-content/uploads/2025/01/child_term.png" alt="" align="right">
-    <span class="oi_mark">生まれ〜大学時代</span><br>
-    東海地方にて生まれる<br>
-    人間の思考について興味を持ち、大学では哲学を専攻する<br>
-    異文化にも興味があり、短期留学したり、海外インターン支援サークルに所属していた
-</div>
-<div class="topic">
-    <img class="mine" src="https://business-okome-tabi.com/wp-content/uploads/2024/12/girl-01.jpg" alt="" align="right">
-    <div class="balloon">
-        海外にインターンシップに行った学生が成長したことに喜びを感じました。短期留学で自身も異文化の違いを体感しました。
-    </div>
-</div>
-<h4 style="text-align:center" id="矢印">▼</h4>
-<div class="comment no2" style="background-color: lightyellow; padding: 20px;">
-    <img class="term_image" src="https://business-okome-tabi.com/wp-content/uploads/2025/01/eng1_term-1.png" alt="" align="right">
-    <span class="oi_mark">新入社員時代</span><br>
-    自分の軸を基準に色んな業種を受け、IT業界の会社にて働き始める<br>
-    全くの未経験故分からないことだらけで毎日焦る日々<br>
-    先輩や同期に助けられつつ2年半インフラエンジニアとしてオンプレの保守対応を行う
-</div>
-<div class="topic">
-    <img class="mine" src="https://business-okome-tabi.com/wp-content/uploads/2024/12/girl-01.jpg" alt="" align="right">
-    <div class="balloon">
-        一時ほぼ毎日障害が発生し、その度に真夜中にデータセンターに駆けつけたことで障害に対する適応力が尽きました。
-    </div>
-</div>
-<h4 style="text-align:center" id="矢印">▼</h4>
-<div class="comment no3" style="background-color: lightyellow; padding: 20px;">
-    <img class="term_image" src="http://business-okome-tabi.com/wp-content/uploads/2025/01/accounting_term.png" alt="" align="right">
-    <span class="oi_mark">模索時代</span><br>
-    <div class="term_comment">簿記資格取得をきっかけに経理業にも興味をもつ<br>
-    経理職に異動・転職し2年半働くも、さらなるキャリアアップを求めエンジニアに戻る</div>
-</div>
-<div class="topic">
-    <img class="mine" src="https://business-okome-tabi.com/wp-content/uploads/2024/12/girl-01.jpg" alt="" align="right">
-    <div class="balloon">
-        経理でお金の動きや財務諸表について学びました。エンジニアとは異なる視点を学び、スキルアップに繋がりました。
-    </div>
-</div>
-<h4 style="text-align:center" id="矢印">▼</h4>
-<div class="comment no4" style="background-color: lightyellow; padding: 20px;">
-    <img class="term_image" src="http://business-okome-tabi.com/wp-content/uploads/2025/01/eng_door_term.png" alt="" align="right">
-    <span class="oi_mark">エンジニア奔走時代</span><br>
-    常駐先で初めてAWSに触れ、クラウドエンジニアの門をたたく<br>
-    AWSとTerraformの仕組みを学ぶ<br>
-    業務で扱うサーバ台数が増え、TerratermマクロやShellScriptで作業効率化するようになる
-</div>
-<div class="topic">
-    <img class="mine" src="https://business-okome-tabi.com/wp-content/uploads/2024/12/girl-01.jpg" alt=""  align="right">
-    <div class="balloon">
-        他にもIT監査に参画し、チームの監査や監査資料作成等の業務を行い、ドキュメント作成の幅を広げました。
-    </div>
-</div>
-<h4 style="text-align:center" id="矢印">▼</h4>
 <h4 style="text-align:center"><span class="oi_mark">現在</span></h4>
 <div class="future">
     <p>クラウドエンジニアとして構築・保守メインに業務に携っております。<br>
@@ -456,14 +331,6 @@
     今後も業務に真摯に向き合い、精進いたします</p> 
 </div>
 
-<!-- お問い合わせ -->
-<div>
-    <h2 class="h-contact"><span>お問い合わせ</span></h2>
-    <section class="contactForm">
-        <?php echo do_shortcode( '[contact-form-7 id="788681a" title="コンタクトフォーム 1"]' ); ?>
-    </section>
-</div>
-
-<?php wp_footer(); ?>
 </body>
 </html>
+
